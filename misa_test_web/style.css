@@ -1,0 +1,197 @@
+@charset "UTF-8";
+
+/* --- カラーパレットの設定（青色ベース） --- */
+:root {
+    --primary-blue: #0056b3;     /* メインの濃い青 */
+    --secondary-blue: #00bfff;   /* ポップな水色 */
+    --light-blue: #eef7ff;       /* 背景用の薄い青 */
+    --text-color: #333333;       /* 文字色 */
+    --white: #ffffff;
+}
+
+/* --- ベース設定 --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    color: var(--text-color);
+    line-height: 1.8;
+    background-color: #f7f9fc;
+}
+
+/* --- ヘッダー（一番上の会社名） --- */
+header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--white);
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 8px 15px rgba(0, 86, 179, 0.2);
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-weight: bold;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+/* --- 各セクションの共通スタイル --- */
+.section-container {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    padding: 40px 30px;
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.section-container.bg-light {
+    background-color: var(--light-blue);
+    box-shadow: none;
+}
+
+.section-container h2 {
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+/* 見出しの下のポップな青い線 */
+.section-container h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 5px;
+    background-color: var(--secondary-blue);
+    margin: 15px auto 0;
+    border-radius: 3px;
+}
+
+.about-content p {
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* --- サービス内容（ポップなカード型デザイン） --- */
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: var(--white);
+    flex: 1 1 calc(33.333% - 20px);
+    min-width: 260px;
+    padding: 30px 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 6px solid var(--secondary-blue);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 86, 179, 0.15);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.card p {
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+/* --- お問い合わせ先 --- */
+.contact-info {
+    text-align: center;
+}
+
+.contact-info p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.contact-info ul {
+    list-style: none;
+    display: inline-block;
+    text-align: left;
+    background-color: var(--light-blue);
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px dashed var(--secondary-blue);
+}
+
+.contact-info li {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.contact-info li:last-child {
+    margin-bottom: 0;
+}
+
+.contact-label {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* --- フッター --- */
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    margin-top: 40px;
+}
+
+/* --- スマホ対応（レスポンシブデザイン） --- */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-container {
+        margin: 0 15px 40px;
+        padding: 30px 20px;
+    }
+
+    .card {
+        flex: 1 1 100%;
+    }
+    
+    .contact-info ul {
+        width: 100%;
+    }
+}
